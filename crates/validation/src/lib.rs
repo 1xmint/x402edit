@@ -32,7 +32,7 @@ pub fn validate_job(request: &JobCreateRequest) -> Result<(), ValidationError> {
     if request.schema_version != SCHEMA_VERSION_V1 {
         return Err(ValidationError::UnsupportedSchema);
     }
-    if request.prompt.as_bytes().len() > MAX_PROMPT_BYTES {
+    if request.prompt.len() > MAX_PROMPT_BYTES {
         return Err(ValidationError::PromptTooLarge);
     }
     if request.literal_text.len() > MAX_LITERAL_TEXT_ENTRIES {
@@ -41,7 +41,7 @@ pub fn validate_job(request: &JobCreateRequest) -> Result<(), ValidationError> {
     let literal_bytes: usize = request
         .literal_text
         .iter()
-        .map(|item| item.text.as_bytes().len())
+        .map(|item| item.text.len())
         .sum();
     if literal_bytes > MAX_LITERAL_TEXT_BYTES {
         return Err(ValidationError::LiteralTextTooLarge);
