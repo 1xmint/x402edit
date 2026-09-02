@@ -5,6 +5,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::fmt;
 use thiserror::Error;
+use utoipa::ToSchema;
 use uuid::Uuid;
 
 pub const SCHEMA_VERSION_V1: &str = "1";
@@ -19,7 +20,9 @@ pub const MAX_WALL_TIME_SECONDS: u32 = 900;
 
 macro_rules! prefixed_id {
     ($name:ident, $prefix:literal) => {
-        #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema)]
+        #[derive(
+            Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema, ToSchema,
+        )]
         #[serde(transparent)]
         pub struct $name(String);
 
@@ -65,6 +68,7 @@ prefixed_id!(AttemptId, "att_");
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum Operation {
     Generate,
     Edit,
@@ -73,6 +77,7 @@ pub enum Operation {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum VisualMode {
     Auto,
     Image,
@@ -81,6 +86,7 @@ pub enum VisualMode {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum PrivacyMode {
     StrictEphemeral,
     ProviderConsent,
@@ -88,6 +94,7 @@ pub enum PrivacyMode {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum QualityProfile {
     Quality,
     Balanced,
@@ -96,6 +103,7 @@ pub enum QualityProfile {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum OutputFormat {
     Png,
     Jpeg,
@@ -104,6 +112,7 @@ pub enum OutputFormat {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum Resolution {
     #[serde(rename = "0.5k")]
     HalfK,
@@ -117,6 +126,7 @@ pub enum Resolution {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum JobState {
     AwaitingInputs,
     NeedsInput,
@@ -159,6 +169,7 @@ impl JobState {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum JobPhase {
     Intake,
     Planning,
@@ -177,6 +188,7 @@ pub enum JobPhase {
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+#[derive(ToSchema)]
 pub enum PaymentState {
     Required,
     Verified,
@@ -204,6 +216,7 @@ impl PaymentState {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[serde(deny_unknown_fields)]
+#[derive(ToSchema)]
 pub struct Money {
     pub asset: String,
     pub amount_atomic: u64,

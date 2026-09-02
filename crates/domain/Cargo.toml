@@ -11,6 +11,7 @@ schemars.workspace = true
 serde.workspace = true
 thiserror.workspace = true
 uuid.workspace = true
+utoipa.workspace = true
 
 [dev-dependencies]
 proptest.workspace = true
