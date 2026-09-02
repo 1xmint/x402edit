@@ -1,0 +1,2 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://x402edit.dev/schemas/semantic-edit/v1.json","type":"object","additionalProperties":false,"required":["op","target","value","invariants","on_ambiguity"],"properties":{"op":{"enum":["replace","remove","recolor","relight","move","resize","retouch","background.replace","canvas.extend","text.set","text.style"]},"target":{"type":"object"},"value":{},"invariants":{"type":"array"},"on_ambiguity":{"enum":["require_input","fail"]}}}
+

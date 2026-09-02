@@ -1,0 +1,11 @@
+[package]
+name = "x402edit-validation"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+x402edit-api-contract.workspace = true
+x402edit-domain.workspace = true

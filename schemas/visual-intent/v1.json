@@ -1,0 +1,2 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://x402edit.dev/schemas/visual-intent/v1.json","type":"object","additionalProperties":false,"required":["schema_version","operation","canvas","literal_text","references","edits","output","privacy","budget"],"properties":{"schema_version":{"const":"1"},"operation":{"enum":["generate","edit","design"]},"canvas":{"type":"object"},"literal_text":{"type":"array"},"references":{"type":"array"},"edits":{"type":"array"},"output":{"type":"object"},"privacy":{"type":"object"},"budget":{"type":"object"}}}
+

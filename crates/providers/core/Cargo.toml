@@ -1,0 +1,17 @@
+[package]
+name = "x402edit-provider-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+chrono.workspace = true
+schemars.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+url.workspace = true
+x402edit-domain.workspace = true
+x402edit-workflow.workspace = true

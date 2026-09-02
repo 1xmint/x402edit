@@ -1,0 +1,2 @@
+{"name":"x402edit-workspace","private":true,"packageManager":"pnpm@11.25.0","scripts":{"typecheck":"pnpm -r typecheck"}}
+

@@ -1,0 +1,10 @@
+[package]
+name = "x402edit-sdk"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+[dependencies]
+reqwest.workspace = true
+x402edit-api-contract.workspace = true
+x402edit-domain.workspace = true
+

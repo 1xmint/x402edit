@@ -1,0 +1,2 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://x402edit.dev/schemas/workflow/v1.json","type":"object","additionalProperties":false,"required":["schema_version","steps","invariants","budgets"],"properties":{"schema_version":{"const":"1"},"steps":{"type":"array"},"invariants":{"type":"array"},"budgets":{"type":"object"}}}
+

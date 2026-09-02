@@ -1,0 +1,90 @@
+[workspace]
+resolver = "3"
+members = [
+  "apps/api",
+  "apps/worker",
+  "apps/media-sandbox",
+  "crates/domain",
+  "crates/api-contract",
+  "crates/application",
+  "crates/persistence",
+  "crates/queue",
+  "crates/payments",
+  "crates/crypto-envelope",
+  "crates/media",
+  "crates/renderer",
+  "crates/workflow",
+  "crates/routing",
+  "crates/validation",
+  "crates/observability",
+  "crates/test-support",
+  "crates/providers/core",
+  "crates/providers/openai",
+  "crates/providers/google",
+  "crates/providers/bfl",
+  "crates/providers/adobe",
+  "crates/providers/xai",
+  "crates/providers/ideogram",
+  "crates/providers/recraft",
+  "crates/providers/alibaba",
+  "crates/providers/stability",
+  "sdks/rust",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.98"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/1xmint/x402edit"
+
+[workspace.dependencies]
+anyhow = "=1.0.104"
+async-trait = "=0.1.92"
+axum = "=0.8.9"
+base64 = "=0.23.1"
+bytes = "=1.12.1"
+chrono = { version = "=0.4.45", features = ["serde"] }
+dashmap = "=6.2.1"
+futures = "=0.3.34"
+hex = "=0.4.3"
+hpke = { version = "=0.14.0", features = ["x25519"] }
+http = "=1.5.0"
+image = { version = "=0.25.10", default-features = false, features = ["png", "jpeg", "webp"] }
+object_store = { version = "=0.14.1", features = ["aws"] }
+parking_lot = "=0.12.5"
+proptest = "=1.11.0"
+rand = "=0.10.2"
+reqwest = { version = "=0.13.4", default-features = false, features = ["json", "multipart", "rustls", "stream"] }
+schemars = { version = "=1.2.2", features = ["chrono04", "uuid1"] }
+secrecy = "=0.10.3"
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.151"
+sha2 = "=0.11.0"
+sqlx = { version = "=0.9.0", default-features = false, features = ["runtime-tokio", "tls-rustls", "postgres", "chrono", "uuid", "json", "migrate"] }
+thiserror = "=2.0.20"
+tokio = { version = "=1.53.1", features = ["full"] }
+tower = { version = "=0.5.3", features = ["util"] }
+tower-http = { version = "=0.7.1", features = ["catch-panic", "cors", "limit", "request-id", "sensitive-headers", "timeout", "trace"] }
+tracing = "=0.1.44"
+tracing-subscriber = { version = "=0.3.23", features = ["env-filter", "fmt", "json"] }
+url = { version = "=2.5.8", features = ["serde"] }
+utoipa = { version = "=5.5.0", features = ["axum_extras", "chrono", "uuid"] }
+uuid = { version = "=1.26.0", features = ["serde", "v7"] }
+wiremock = "=0.6.5"
+zeroize = { version = "=1.9.0", features = ["derive"] }
+zip = { version = "=8.6.0", default-features = false, features = ["deflate"] }
+
+x402edit-domain = { path = "crates/domain" }
+x402edit-api-contract = { path = "crates/api-contract" }
+x402edit-application = { path = "crates/application" }
+x402edit-crypto-envelope = { path = "crates/crypto-envelope" }
+x402edit-media = { path = "crates/media" }
+x402edit-payments = { path = "crates/payments" }
+x402edit-persistence = { path = "crates/persistence" }
+x402edit-provider-core = { path = "crates/providers/core" }
+x402edit-queue = { path = "crates/queue" }
+x402edit-renderer = { path = "crates/renderer" }
+x402edit-routing = { path = "crates/routing" }
+x402edit-validation = { path = "crates/validation" }
+x402edit-workflow = { path = "crates/workflow" }

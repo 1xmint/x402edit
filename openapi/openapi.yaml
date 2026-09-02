@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: x402edit API
+  version: 0.1.0
+servers:
+  - url: http://127.0.0.1:8080
+paths:
+  /v1/capabilities:
+    get:
+      responses:
+        '200': { description: Current fail-closed capability snapshot }
+  /v1/quotes:
+    post:
+      responses:
+        '201': { description: Immutable five-minute quote }
+  /v1/jobs:
+    post:
+      parameters:
+        - { name: Idempotency-Key, in: header, required: true, schema: { type: string } }
+        - { name: PAYMENT-SIGNATURE, in: header, required: true, schema: { type: string } }
+      responses:
+        '201': { description: Durable job handle and bearer capability }
+        '402': { description: Payment required }
+  /v1/jobs/{id}:
+    get:
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Content-free job status }
+

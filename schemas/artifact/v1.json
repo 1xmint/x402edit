@@ -1,0 +1,2 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://x402edit.dev/schemas/artifact/v1.json","type":"object","additionalProperties":false,"required":["schema_version","artifact_id","version_id","nodes"],"properties":{"schema_version":{"const":"1"},"artifact_id":{"type":"string"},"version_id":{"type":"string"},"nodes":{"type":"array"}}}
+

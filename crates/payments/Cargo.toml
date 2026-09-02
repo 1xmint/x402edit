@@ -1,0 +1,12 @@
+[package]
+name = "x402edit-payments"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+x402edit-domain.workspace = true
+

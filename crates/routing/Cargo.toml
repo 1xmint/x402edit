@@ -1,0 +1,12 @@
+[package]
+name = "x402edit-routing"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+thiserror.workspace = true
+x402edit-domain.workspace = true
+x402edit-provider-core.workspace = true

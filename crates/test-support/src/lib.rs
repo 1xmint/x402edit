@@ -1,0 +1,3 @@
+pub fn png_signature() -> &'static [u8] {
+    &[0x89, b'P', b'N', b'G', 0x0d, 0x0a, 0x1a, 0x0a]
+}

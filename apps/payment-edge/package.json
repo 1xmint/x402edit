@@ -1,0 +1,16 @@
+{
+  "name": "@x402edit/payment-edge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"typecheck":"tsc --noEmit","test":"node --test"},
+  "dependencies": {
+    "@hono/node-server": "1.19.9",
+    "@x402/core": "2.24.0",
+    "@x402/evm": "2.24.0",
+    "@x402/hono": "2.24.0",
+    "hono": "4.9.8"
+  },
+  "devDependencies": {"@types/node":"24.10.0","typescript":"7.0.2"}
+}
+

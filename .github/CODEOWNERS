@@ -1,0 +1,6 @@
+/crates/payments/ @1xmint
+/crates/crypto-envelope/ @1xmint
+/crates/media/ @1xmint
+/migrations/ @1xmint
+/apps/payment-edge/ @1xmint
+
