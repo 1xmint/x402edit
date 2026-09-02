@@ -165,11 +165,11 @@ fn auth(raw_id: String, headers: &HeaderMap) -> Result<(JobId, String), ApiProbl
     Ok((id, value.to_owned()))
 }
 
-struct ApiProblem(Problem);
+struct ApiProblem(Box<Problem>);
 
 impl ApiProblem {
     fn new(status: StatusCode, code: &str, detail: &str) -> Self {
-        Self(Problem {
+        Self(Box::new(Problem {
             problem_type: format!("https://x402edit.dev/problems/{code}"),
             title: code.replace('_', " "),
             status: status.as_u16(),
@@ -178,7 +178,7 @@ impl ApiProblem {
             instance: RequestId::new().to_string(),
             retryable: false,
             metadata: None,
-        })
+        }))
     }
 }
 
